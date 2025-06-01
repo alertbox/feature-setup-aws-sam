@@ -1,0 +1,38 @@
+{
+    "id": "sam",
+    "name": "Setup AWS SAM",
+    "version": "1.0.0",
+    "description": "Download, install, and setup specific version of AWS SAM in your Dev Container.",
+    "documentationURL": "https://github.com/alertbox/feature-setup-aws-sam/tree/main/src/sam",
+    "options": {
+        "version": {
+            "type": "string",
+            "proposals": [
+                "latest"
+            ],
+            "default": "latest",
+            "description": "Select or enter a version."
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "AmazonWebServices.amazon-q-vscode"
+            ],
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "aws.telemetry": false,
+                "amazonQ.telemetry": false,
+                "aws.samcli.enableCodeLenses": true,
+                "github.copilot.chat.codeGeneration.instructions": [
+                    {
+                        "text": "This dev container includes `sam` pre-installed and available on the `PATH` for AWS SAM, AWS Serverless Application development."
+                    }
+                ]
+            }
+        }
+    },
+    "dependsOn": {
+        "ghcr.io/devcontainers/features/aws-cli": {}
+    }
+}
